@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+
+{% block styles %}
+<style>
+    .contact-section {
+        padding: 60px 5%;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .contact-card {
+        background-color: var(--white);
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .contact-card h2 {
+        color: var(--primary-color);
+        margin-bottom: 20px;
+    }
+
+    .contact-details p {
+        font-size: 18px;
+        margin: 10px 0;
+        line-height: 1.6;
+    }
+
+    .contact-details strong {
+        color: var(--text-dark);
+    }
+
+    .map-placeholder {
+        background-color: #eee;
+        height: 300px;
+        border-radius: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #999;
+        font-size: 24px;
+        font-weight: 600;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<section class="contact-section">
+    <div class="contact-card">
+        <h2>Get in Touch</h2>
+        <div class="contact-details">
+            <p><strong>Phone:</strong> 9846883299</p>
+            <p><strong>Email:</strong> info@jananimedicals.com</p>
+            <p><strong>Address:</strong> Court Road, near District Hospital, Palakkad</p>
+            <p><strong>Opening Hours:</strong><br>
+                Opening - 9:00 am to 10:00 pm (working days)<br>
+                Sunday - 9:00 am to 9:00 pm</p>
+        </div>
+    </div>
+
+    <div class="map-container" style="border-radius: 15px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.05);">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.5559343050013!2d76.657448!3d10.7686665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba86de5f49e61a9%3A0x5e8efc3ca7265d53!2sJanani%20medicals!5e0!3m2!1sen!2sin!4v1764333598904!5m2!1sen!2sin"
+            width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+</section>
+{% endblock %}

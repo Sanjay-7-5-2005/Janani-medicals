@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Janani Medicals - Your Health, Delivered</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #00897b;
+            /* Teal */
+            --secondary-color: #e0f2f1;
+            /* Light Teal */
+            --accent-color: #ff6f00;
+            /* Amber for CTA */
+            --text-dark: #333;
+            --text-light: #666;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-dark);
+            background-color: #f9f9f9;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo span {
+            color: var(--text-dark);
+            margin-left: 5px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            margin-left: 20px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: var(--primary-color);
+        }
+
+        /* Main Content */
+        main {
+            flex: 1;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #263238;
+            color: var(--white);
+            padding: 40px 5%;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 20px;
+        }
+
+        .footer-item h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .footer-item p {
+            margin: 5px 0;
+            color: #b0bec5;
+        }
+
+        .copyright {
+            border-top: 1px solid #37474f;
+            padding-top: 20px;
+            color: #78909c;
+            font-size: 14px;
+        }
+
+        /* Utility */
+        .btn-cta {
+            background-color: var(--accent-color);
+            color: var(--white);
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 32px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(255, 111, 0, 0.4);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: inline-block;
+        }
+
+        .btn-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 111, 0, 0.6);
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    </style>
+    {% block styles %}{% endblock %}
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <a href="{{ url_for('home') }}" class="logo">Janani <span>Medicals</span></a>
+        <nav>
+            <a href="{{ url_for('home') }}" class="{{ 'active' if request.endpoint == 'home' else '' }}">Home</a>
+            <a href="{{ url_for('order') }}" class="{{ 'active' if request.endpoint == 'order' else '' }}">Order Now</a>
+            <a href="{{ url_for('contact') }}"
+                class="{{ 'active' if request.endpoint == 'contact' else '' }}">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-item">
+                <h3>Contact Us</h3>
+                <p>Phone: 9846883299</p>
+                <p>Email: info@jananimedicals.com</p>
+            </div>
+            <div class="footer-item">
+                <h3>Visit Us</h3>
+                <p>Court Road, near District Hospital,</p>
+                <p>Palakkad</p>
+            </div>
+            <div class="footer-item">
+                <h3>Opening Hours</h3>
+                <p>Opening - 9:00 am to 10:00 pm (working days)</p>
+                <p>Sunday - 9:00 am to 9:00 pm</p>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2023 Janani Medicals. All rights reserved.
+        </div>
+    </footer>
+
+    {% block scripts %}{% endblock %}
+</body>
+
+</html>
