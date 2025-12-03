@@ -57,6 +57,15 @@
             margin-left: 5px;
         }
 
+        .logo-img {
+            height: 80px;
+            width: auto;
+            margin-left: 15px;
+            border-radius: 50%;
+            object-fit: cover;
+            vertical-align: middle;
+        }
+
         nav a {
             text-decoration: none;
             color: var(--text-dark);
@@ -249,7 +258,10 @@
 
     <!-- Header -->
     <header>
-        <a href="{{ url_for('home') }}" class="logo">Janani <span>Medicals</span></a>
+        <a href="{{ url_for('home') }}" class="logo">
+            Janani <span>Medicals</span>
+            <img src="{{ url_for('static', filename='images/Webicon.jpeg') }}" alt="Logo" class="logo-img">
+        </a>
 
         <!-- Desktop Nav -->
         <nav>
